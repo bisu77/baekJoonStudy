@@ -1,20 +1,22 @@
 package bruteforce;
 
+import java.util.Arrays;
+import java.util.Scanner;
 
 /**
- * @ï¿½ï¿½ï¿½ï¿½
- * ï¿½Õºï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ï°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ìµï¿½ï¿½ ï¿½Ô²ï¿½ ï¿½ï¿½È­ï¿½Ó°ï¿½ ï¿½ï¿½È°ï¿½Ï°ï¿½ ï¿½Ö´ï¿½ ï¿½é¼³ï¿½ï¿½ï¿½Ö¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½â°¡ Ã£ï¿½Æ¿Ô´ï¿½. ï¿½Ï°ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ï¿½ï¿½ ï¿½ï¿½ï¿½Æ¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ì°ï¿½ ï¿½Ï°ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Æ´ï¿½ ï¿½ï¿½È© ï¿½ï¿½ï¿½Ì¾ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ì´ï¿½.
- * ï¿½ï¿½È© ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ì´ï¿½ ï¿½ï¿½ï¿½ ï¿½Ú½ï¿½ï¿½ï¿½ "ï¿½é¼³ ï¿½ï¿½ï¿½Ö¿ï¿½ ï¿½Ï°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½"ï¿½ï¿½ ï¿½ï¿½ï¿½Î°ï¿½ï¿½Ì¶ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ß´ï¿½. ï¿½Ù¾î³­ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½é¼³ï¿½ï¿½ï¿½Ö´ï¿½, ï¿½ï¿½ï¿½à½ºï¿½ï¿½ï¿½Ôµï¿½ ï¿½Ï°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Å°ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ 100ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Â´ï¿½.
- * ï¿½ï¿½È© ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Å°ï¿½ï¿½ ï¿½Ö¾ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½, ï¿½é¼³ï¿½ï¿½ï¿½Ö¸ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ï°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ì¸ï¿½ Ã£ï¿½ï¿½ ï¿½ï¿½ï¿½Î±×·ï¿½ï¿½ï¿½ ï¿½Û¼ï¿½ï¿½Ï½Ã¿ï¿½.
+ * @¹®Á¦
+ * ¿Õºñ¸¦ ÇÇÇØ ÀÏ°ö ³­ÀïÀÌµé°ú ÇÔ²² ÆòÈ­·Ó°Ô »ýÈ°ÇÏ°í ÀÖ´ø ¹é¼³°øÁÖ¿¡°Ô À§±â°¡ Ã£¾Æ¿Ô´Ù. ÀÏ°ú¸¦ ¸¶Ä¡°í µ¹¾Æ¿Â ³­ÀïÀÌ°¡ ÀÏ°ö ¸íÀÌ ¾Æ´Ñ ¾ÆÈ© ¸íÀÌ¾ú´ø °ÍÀÌ´Ù.
+ * ¾ÆÈ© ¸íÀÇ ³­ÀïÀÌ´Â ¸ðµÎ ÀÚ½ÅÀÌ "¹é¼³ °øÁÖ¿Í ÀÏ°ö ³­ÀïÀÌ"ÀÇ ÁÖÀÎ°øÀÌ¶ó°í ÁÖÀåÇß´Ù. ¶Ù¾î³­ ¼öÇÐÀû Á÷°ü·ÂÀ» °¡Áö°í ÀÖ´ø ¹é¼³°øÁÖ´Â, ´ÙÇà½º·´°Ôµµ ÀÏ°ö ³­ÀïÀÌÀÇ Å°ÀÇ ÇÕÀÌ 100ÀÌ µÊÀ» ±â¾ïÇØ ³Â´Ù.
+ * ¾ÆÈ© ³­ÀïÀÌÀÇ Å°°¡ ÁÖ¾îÁ³À» ¶§, ¹é¼³°øÁÖ¸¦ µµ¿Í ÀÏ°ö ³­ÀïÀÌ¸¦ Ã£´Â ÇÁ·Î±×·¥À» ÀÛ¼ºÇÏ½Ã¿À.
  * 
- * @ï¿½Ô·ï¿½
- * ï¿½ï¿½È© ï¿½ï¿½ï¿½ï¿½ ï¿½Ù¿ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ìµï¿½ï¿½ï¿½ Å°ï¿½ï¿½ ï¿½Ö¾ï¿½ï¿½ï¿½ï¿½ï¿½. ï¿½Ö¾ï¿½ï¿½ï¿½ï¿½ï¿½ Å°ï¿½ï¿½ 100ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ê´ï¿½ ï¿½Ú¿ï¿½ï¿½ï¿½ï¿½Ì¸ï¿½, ï¿½ï¿½È© ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Å°ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Ù¸ï¿½ï¿½ï¿½, 
- * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ì¿¡ï¿½ï¿½ ï¿½Æ¹ï¿½ï¿½Å³ï¿½ ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
+ * @ÀÔ·Â
+ * ¾ÆÈ© °³ÀÇ ÁÙ¿¡ °ÉÃÄ ³­ÀïÀÌµéÀÇ Å°°¡ ÁÖ¾îÁø´Ù. ÁÖ¾îÁö´Â Å°´Â 100À» ³ÑÁö ¾Ê´Â ÀÚ¿¬¼öÀÌ¸ç, ¾ÆÈ© ³­ÀïÀÌÀÇ Å°´Â ¸ðµÎ ´Ù¸£¸ç, 
+ * °¡´ÉÇÑ Á¤´äÀÌ ¿©·¯ °¡ÁöÀÎ °æ¿ì¿¡´Â ¾Æ¹«°Å³ª Ãâ·ÂÇÑ´Ù.
  * 
- * @ï¿½ï¿½ï¿½
- * ï¿½Ï°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Å°ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½. ï¿½Ï°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ì¸ï¿½ Ã£ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
+ * @Ãâ·Â
+ * ÀÏ°ö ³­ÀïÀÌÀÇ Å°¸¦ ¿À¸§Â÷¼øÀ¸·Î Ãâ·ÂÇÑ´Ù. ÀÏ°ö ³­ÀïÀÌ¸¦ Ã£À» ¼ö ¾ø´Â °æ¿ì´Â ¾ø´Ù.
  * 
- * @ï¿½ï¿½ï¿½ï¿½ï¿½Ô·ï¿½
+ * @¿¹Á¦ÀÔ·Â
  * 20
  * 7
  * 23
@@ -25,19 +27,109 @@ package bruteforce;
  * 8
  * 13
  * 
- * @ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+ * @¿¹Á¦Ãâ·Â
  * 
  * 7
  * 8
  * 10
- * 13 
+ * 13
  * 19
  * 20
  * 23
  */
 public class Exercise_2309 {
-
+	// 1) idx 2°³ Á¦¿Ü ÈÄ ÇÕ»ê ¹æ½Ä
+	// 2) ¸ðµÎ ÇÕ»ê ÈÄ ³ª¸ÓÁö Â÷ÀÌ °ª idx Ã£±â
 	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int[] nan9height = new int[9];
+		int[] nan7height = new int[7];
+		int heightSum 	 = 0;
+		int nanLier1  	 = 0;
+		int nanLier2  	 = 0;
+		
+		/* ========================================================== */
+		/* 					 	ÇÕ»ê ÈÄ Â÷ÀÌ °ª idx Ã£±â 				  	  */
+		/* ========================================================== */
+		int overHeight	 = 0;
+		for(int i=0;i<9;i++){
+			nan9height[i] = sc.nextInt();
+			heightSum += nan9height[i];
+		}
+		
+		overHeight = heightSum - 100;
+		
+		try {
+			for(int i=0;i<9;i++) {
+				for(int j=(i+1);j<9;j++) {
+					int sum = nan9height[i] + nan9height[j];
 
+					if(overHeight==sum) {
+						nanLier1 = i;
+						nanLier2 = j;
+						throw new Exception("find lier nanjang");
+					}
+				}
+			}
+		}catch(Exception e) {
+			int idx = 0;
+			for(int i=0;i<9;i++){
+				if(i==nanLier1 || i==nanLier2) {
+					continue;
+				}
+				nan7height[idx++] = nan9height[i];
+			}
+
+			Arrays.sort(nan7height);
+
+			for(int i=0;i<7;i++){
+				System.out.println(nan7height[i]);
+			}
+		}
+
+		/* ========================================================== */
+		/* 					 idx 2°³ Á¦¿Ü ÈÄ ÇÕ»ê ¹æ½Ä 					  */
+		/* ========================================================== */
+		/*
+		for(int i=0;i<9;i++){
+			nan9height[i] = sc.nextInt();
+		}
+
+		try{
+			for(int i=0;i<9;i++){
+				for(int j=(i+1);j<9;j++){
+					heightSum = 0;
+					for(int k=0;k<9;k++){
+						if(i==k) {
+							nanLier1 = i;
+							continue;
+						}
+						if(j==k) {
+							nanLier2 = j;
+							continue;
+						}
+						heightSum += nan9height[k];
+					}
+					if(heightSum==100){
+						throw new Exception("find lier nanjang");
+					}
+				}
+			}
+		}catch(Exception e){
+			int idx = 0;
+			for(int i=0;i<9;i++){
+				if(i==nanLier1 || i==nanLier2) {
+					continue;
+				}
+				nan7height[idx++] = nan9height[i];
+			}
+
+			Arrays.sort(nan7height);
+
+			for(int i=0;i<7;i++){
+				System.out.println(nan7height[i]);
+			}
+		}
+		*/
 	}
 }
