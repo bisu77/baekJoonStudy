@@ -1,7 +1,9 @@
 package bruteforce;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.Arrays;
-import java.util.Scanner;
 
 /**
  * @문제
@@ -40,8 +42,9 @@ import java.util.Scanner;
 public class Exercise_2309 {
 	// 1) idx 2개 제외 후 합산 방식
 	// 2) 모두 합산 후 나머지 차이 값 idx 찾기
-	public static void main(String[] args) {
-		Scanner sc = new Scanner(System.in);
+	public static void main(String[] args) throws NumberFormatException, IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
 		int[] nan9height = new int[9];
 		int[] nan7height = new int[7];
 		int heightSum 	 = 0;
@@ -53,7 +56,7 @@ public class Exercise_2309 {
 		/* ========================================================== */
 		int overHeight	 = 0;
 		for(int i=0;i<9;i++){
-			nan9height[i] = sc.nextInt();
+			nan9height[i] = Integer.parseInt(br.readLine());
 			heightSum += nan9height[i];
 		}
 		
@@ -92,7 +95,7 @@ public class Exercise_2309 {
 		/* ========================================================== */
 		/*
 		for(int i=0;i<9;i++){
-			nan9height[i] = sc.nextInt();
+			nan9height[i] = Integer.parseInt(br.readLine());
 		}
 
 		try{
