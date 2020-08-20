@@ -6,7 +6,7 @@ import java.io.InputStreamReader;
 import java.util.Arrays;
 
 /**
- * @문제
+ * @문제 : 일곱난장이
  * https://www.acmicpc.net/problem/2309
  */
 public class Exercise_2309 {
