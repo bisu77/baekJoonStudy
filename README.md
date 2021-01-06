@@ -9,6 +9,7 @@
     + 3주차 (유레카 이론) :: https://www.acmicpc.net/problem/10448
     
   - DP(Dynamic Programming) 초급
+    + 4주차(1로 만들기) :: https://www.acmicpc.net/problem/1463
   - 큐, 스택
   - DFS
   - BFS
