@@ -10,6 +10,7 @@
     
   - DP(Dynamic Programming) 초급
     + 4주차(1로 만들기) :: https://www.acmicpc.net/problem/1463
+    + 5주차(스티커) :: https://www.acmicpc.net/problem/9465
   - 큐, 스택
   - DFS
   - BFS
